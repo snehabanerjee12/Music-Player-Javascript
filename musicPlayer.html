@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Music Player</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="musicPlayerStyle.css">
+		<script src="https://kit.fontawesome.com/b8d9ddb855.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<header>
+			<h1>Music Player</h1>
+				<div class="toggle-container" onclick="toggleSwitch(this)">
+					<div class="toggle-switch"></div>
+					<span class="mode Dark">Dark</span>
+					<span class="mode Light">Light</span>
+				</div>
+	    </header>
+		<main>
+			<div id="all-song-div" class="songSection">
+				<div class="songOptions">
+					<label for="selectSong">
+						<span style="font-size: 2rem;">Filter by Genre:</span>
+						<select id="selectSong">
+							<option value="All">All Songs</option>
+						</select>
+					</label>
+				</div>
+				<div>
+					<h2>All Songs</h2>
+					<div id="songDisplay">
+
+					</div>
+				</div>
+				<div id="searchByNameDiv">
+					<h2>Search Section</h2>
+					<h3>Search by Song Name</h3>
+					<input  type="text" id="searchName" placeholder="Search Song">
+					<button id="seachByNamebtn" onclick="searchByName()">Search</button>
+					<h3 style="display:none;" id="resultSong">Result</h3>
+					<div id="showResult"></div>
+				</div>
+				<div id="searchByPlayListDiv">
+					<h3>Search by PlayList</h3>
+					<input type="text" id="playlistName" placeholder="Search PlayList">
+					<button id="searchByPlaylistbtn" onclick="searchPlaylist()">Search</button>
+					<h3 style="display:none;" id="resultPlayList">Result</h3>
+					<div id="showplayListResult"></div>
+				</div>
+			</div>
+			<div id="card-div" class="songSection">
+				<div id="songCard">
+					<div id="songImg"><img id="ImageId" src="queue-01.jpg" alt="Seach your Song"></div>
+					<div id="songName">Search your Song</div>
+					<div id="artistName"></div>
+				</div>
+				<audio id="audioPlayer" controls style="margin-top: 10px; display:none;"></audio>
+				<div id="songFlow">
+				<button id="prevButton" class="flowButton" style="display:none;" onclick="prevSong()"><i class="fa-solid fa-angles-left" style="color: #f3f6fb;"></i></button>
+				<button id="nextButton" class="flowButton" style="display:none;" onclick="nextSong()"><i class="fa-solid fa-angles-right" style="color: #f3f6fb;"></i></button>
+				</div>
+				<div id="addRemoveDiv">
+					<button id="addPlayList" onclick="storeSong()">Add To Playlist</button>
+					<button id="removePlayList" onclick="removeSong()">Remove from Playlist</button>
+				</div>
+			</div>
+			<div id="playlist-div">
+				<div id="createPlayListDiv">
+					<input type="text" id="newPlayList" placeholder="Create new PlayList">
+					<button onclick="createNewPlaylist()" id ="createListButton">Create Playlist</button>
+				</div>
+				<div id="showList">
+					<div>
+						<h3>Current Playlist</h1>
+							<div id="showCurrentListSongs"></div>
+					</div>
+					<div>
+						<h3>All Playlist</h3>
+						<div id="showAllPlaylist"></div>
+					</div>
+				</div>
+			</div> 
+		</main>
+	</body>
+		<script src="/musicPlayerScript.js"></script>
+	</body>
+</html>
